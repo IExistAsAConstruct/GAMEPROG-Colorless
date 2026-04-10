@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Fireball
   - Ladder
+  - Enemy
+  - IceWall
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,7 @@ TagManager:
   - Player
   - Ladder
   - Fireball
-  - 
+  - Enemy
   - 
   - 
   - 
