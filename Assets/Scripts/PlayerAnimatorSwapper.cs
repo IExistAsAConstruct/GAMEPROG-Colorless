@@ -14,13 +14,35 @@ public class PlayerAnimatorSwapper : MonoBehaviour
 
     private void Start()
     {
-        ColorManager.Instance.OnColorChanged += ApplyAnimator;
-        ApplyAnimator(ColorManager.Instance.CurrentColor);
+        if (ColorManager.Instance != null)
+        {
+            ColorManager.Instance.OnColorChanged += ApplyAnimator;
+            ApplyAnimator(ColorManager.Instance.CurrentColor);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (ColorManager.Instance != null)
+        {
+            ColorManager.Instance.OnColorChanged -= ApplyAnimator;
+        }
     }
 
     private void ApplyAnimator(ColorType colorType)
     {
-        RuntimeAnimatorController controller = colorType switch
+        if (animator == null) return;
+
+        float currentSpeed = animator.GetFloat("Speed");
+        float currentY = animator.GetFloat("yVelocity");
+        bool currentGrounded = animator.GetBool("isGrounded");
+        bool currentClimbing = animator.GetBool("isClimbing");
+
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        float playbackTime = stateInfo.normalizedTime;
+        int stateHash = stateInfo.shortNameHash;
+
+        RuntimeAnimatorController newController = colorType switch
         {
             ColorType.Red => redAnimator,
             ColorType.Blue => blueAnimator,
@@ -29,6 +51,16 @@ public class PlayerAnimatorSwapper : MonoBehaviour
             _ => whiteAnimator
         };
 
-        if (controller != null) animator.runtimeAnimatorController = controller;
+        if (newController != null && animator.runtimeAnimatorController != newController)
+        {
+            animator.runtimeAnimatorController = newController;
+
+            animator.SetFloat("Speed", currentSpeed);
+            animator.SetFloat("yVelocity", currentY);
+            animator.SetBool("isGrounded", currentGrounded);
+            animator.SetBool("isClimbing", currentClimbing);
+
+            animator.Play(stateHash, 0, playbackTime);
+        }
     }
 }

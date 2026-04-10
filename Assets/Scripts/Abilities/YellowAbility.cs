@@ -3,7 +3,7 @@ using UnityEngine;
 public class YellowAbility : ColorAbility
 {
     [Header("Yellow Settings")]
-    public float speedMultiplier = 1.5f;
+    public float speedBoostMultiplier = 1.5f;
     public float hoverFallSpeed = -0.8f;
 
     private Rigidbody2D rb;
@@ -19,7 +19,7 @@ public class YellowAbility : ColorAbility
         base.OnActivate();
         if (playerController != null)
         {
-            playerController.SetSpeedMultiplier(speedMultiplier);
+            playerController.SetSpeedMultiplier(speedBoostMultiplier);
         }
     }
 

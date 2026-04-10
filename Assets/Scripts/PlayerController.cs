@@ -3,50 +3,90 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] private float moveSpeed = 8f;
-    [SerializeField] private float jumpForce = 12f;
+    public float moveSpeed = 5f;
+    public float jumpForce = 12f;
+    public float climbSpeed = 4f;
+    public float defaultGravity = 3f;
+
+    [Header("Ground Detection")]
+    public Transform groundCheck;
+    public float groundCheckRadius = 0.3f;
+    public LayerMask groundLayer;
+
     private float speedMultiplier = 1f;
-
-    [Header("Ground Check")]
-    [SerializeField] private Transform groundPoint;
-    [SerializeField] private float groundCheckRadius = 0.2f;
-    [SerializeField] private LayerMask groundLayers;
-
     private Rigidbody2D rb;
-    private Animator animator;
+    private Animator anim;
+
+    private bool isClimbing;
+    private bool onLadder;
     private bool isGrounded;
-    private float moveInput;
-    public bool IsFacingRight { get; private set; } = true;
+
+    [HideInInspector] public bool IsFacingRight = true;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        if (rb != null) rb.gravityScale = defaultGravity;
+        isClimbing = false;
+        onLadder = false;
     }
 
     private void Update()
     {
-        moveInput = Input.GetAxisRaw("Horizontal");
-        isGrounded = Physics2D.OverlapCircle(groundPoint.position, groundCheckRadius, groundLayers);
+        if (groundCheck != null)
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        else
+            isGrounded = false;
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        float moveInput = Input.GetAxisRaw("Horizontal");
+        float climbInput = Input.GetAxisRaw("Vertical");
+
+        anim.SetBool("isGrounded", isGrounded);
+        anim.SetFloat("yVelocity", rb.linearVelocity.y);
+        anim.SetFloat("Speed", Mathf.Abs(moveInput));
+
+        if (Input.GetButtonDown("Jump") && isGrounded && !isClimbing)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
 
+        rb.linearVelocity = new Vector2(moveInput * (moveSpeed * speedMultiplier), rb.linearVelocity.y);
+
+        if (onLadder && Mathf.Abs(climbInput) > 0.1f) isClimbing = true;
+
+        if (isClimbing) HandleClimbing(climbInput);
+        else HandleWalking();
+
         if (moveInput > 0 && !IsFacingRight) Flip();
         else if (moveInput < 0 && IsFacingRight) Flip();
-
-        UpdateAnimations();
     }
 
-    private void FixedUpdate()
+    private void HandleClimbing(float climbInput)
     {
-        float finalSpeed = moveInput * moveSpeed * speedMultiplier;
-        rb.linearVelocity = new Vector2(finalSpeed, rb.linearVelocity.y);
+        rb.gravityScale = 0;
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, climbInput * climbSpeed);
+        anim.SetBool("isClimbing", true);
+        if (Mathf.Abs(climbInput) < 0.1f) anim.speed = 0;
+        else anim.speed = 1;
     }
 
-    public void SetSpeedMultiplier(float multiplier) => speedMultiplier = multiplier;
+    private void HandleWalking()
+    {
+        rb.gravityScale = defaultGravity;
+        anim.SetBool("isClimbing", false);
+        anim.speed = 1;
+    }
+
+    // This is the function the error is looking for!
+    public void SetSpeedMultiplier(float amount)
+    {
+        speedMultiplier = amount;
+    }
 
     private void Flip()
     {
@@ -54,12 +94,26 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(0f, 180f, 0f);
     }
 
-    private void UpdateAnimations()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (animator != null)
+        if (collision.CompareTag("Ladder")) onLadder = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ladder"))
         {
-            animator.SetFloat("moveSpeed", Mathf.Abs(moveInput));
-            animator.SetBool("isGrounded", isGrounded);
+            onLadder = false;
+            isClimbing = false;
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (groundCheck != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         }
     }
 }

@@ -2,26 +2,51 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
-    [SerializeField] private float speed = 12f;
-    [SerializeField] private float lifetime = 2.5f;
-    private Vector2 direction;
+    public float speed = 15f;
+    public int damage = 1;
+    public float lifetime = 3f;
+    private Rigidbody2D rb;
 
-    void Start() => Destroy(gameObject, lifetime);
-
-    void Update() => transform.Translate(direction * speed * Time.deltaTime);
-
-    public void SetDirection(Vector2 dir)
+    private void Awake()
     {
-        direction = dir;
-        if (dir == Vector2.left) transform.localScale = new Vector3(-1, 1, 1);
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void Start()
     {
-        if (other.TryGetComponent<Health>(out var health))
+        Destroy(gameObject, lifetime);
+    }
+
+    public void Launch(bool facingRight)
+    {
+        float direction = facingRight ? 1f : -1f;
+        rb.linearVelocity = new Vector2(direction * speed, 0);
+
+        if (!facingRight)
         {
-            health.UpdateHealth(-1);
-            Destroy(gameObject);
+            transform.Rotate(0f, 180f, 0f);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            Health enemyHealth = collision.GetComponent<Health>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.UpdateHealth(-damage);
+            }
+            Explode();
+        }
+        else if (collision.CompareTag("Wall") || collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            Explode();
+        }
+    }
+
+    private void Explode()
+    {
+        Destroy(gameObject);
     }
 }

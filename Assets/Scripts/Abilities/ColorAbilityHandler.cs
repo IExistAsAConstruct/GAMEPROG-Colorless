@@ -8,19 +8,11 @@ public class ColorAbilityHandler : MonoBehaviour
     public ColorAbility greenAbility;
     public ColorAbility yellowAbility;
 
-    [Header("Override Controllers")]
-    public RuntimeAnimatorController redOverride;
-    public RuntimeAnimatorController blueOverride;
-    public RuntimeAnimatorController greenOverride;
-    public RuntimeAnimatorController yellowOverride;
-
     private ColorAbility currentAbility;
-    private Animator anim;
     private SpriteRenderer spriteRenderer;
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -31,9 +23,17 @@ public class ColorAbilityHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3)) SwitchColor(greenAbility);
         if (Input.GetKeyDown(KeyCode.Alpha4)) SwitchColor(yellowAbility);
 
-        if (Input.GetButtonDown("Fire1") && currentAbility != null)
+        if (currentAbility != null)
         {
-            currentAbility.OnBasicAttack();
+            if (Input.GetButtonDown("Fire1"))
+            {
+                currentAbility.OnBasicAttack();
+            }
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                currentAbility.OnSpecialAbility();
+            }
         }
     }
 
@@ -45,11 +45,6 @@ public class ColorAbilityHandler : MonoBehaviour
 
         currentAbility = newAbility;
         currentAbility.OnActivate();
-
-        if (currentAbility == redAbility) anim.runtimeAnimatorController = redOverride;
-        else if (currentAbility == blueAbility) anim.runtimeAnimatorController = blueOverride;
-        else if (currentAbility == greenAbility) anim.runtimeAnimatorController = greenOverride;
-        else if (currentAbility == yellowAbility) anim.runtimeAnimatorController = yellowOverride;
 
         if (spriteRenderer != null) spriteRenderer.color = currentAbility.abilityColor;
     }
