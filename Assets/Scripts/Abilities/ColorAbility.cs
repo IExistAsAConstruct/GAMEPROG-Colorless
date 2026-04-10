@@ -2,22 +2,22 @@ using UnityEngine;
 
 public abstract class ColorAbility : MonoBehaviour
 {
-    // This allows you to pick the color in the Inspector
-    public Color abilityColor = Color.white;
+    public Color abilityColor;
 
-    protected Animator animator;
-    protected PlayerAttack playerAttack;
-    protected PlayerController playerController;
+    [HideInInspector] public Animator animator;
+    [HideInInspector] public PlayerController playerController;
+    [HideInInspector] public PlayerAttack playerAttack;
 
     protected virtual void Awake()
     {
         animator = GetComponent<Animator>();
-        playerAttack = GetComponent<PlayerAttack>();
         playerController = GetComponent<PlayerController>();
+        playerAttack = GetComponent<PlayerAttack>();
+        enabled = false;
     }
 
-    public virtual void OnActivate() { enabled = true; }
-    public virtual void OnDeactivate() { enabled = false; }
-    public virtual bool OnBasicAttack() { return false; }
+    public virtual void OnActivate() => enabled = true;
+    public virtual void OnDeactivate() => enabled = false;
+    public virtual void OnBasicAttack() { }
     public abstract void OnSpecialAbility();
 }

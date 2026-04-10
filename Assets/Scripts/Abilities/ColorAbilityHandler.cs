@@ -2,54 +2,57 @@ using UnityEngine;
 
 public class ColorAbilityHandler : MonoBehaviour
 {
-    [Header("Ability Scripts")]
+    [Header("Abilities")]
     public ColorAbility redAbility;
     public ColorAbility blueAbility;
     public ColorAbility greenAbility;
-    public ColorAbility yellowAbility; // Added Yellow
+    public ColorAbility yellowAbility;
 
-    [Header("Animator Controllers")]
-    public RuntimeAnimatorController redAnimator;
-    public RuntimeAnimatorController blueAnimator;
-    public RuntimeAnimatorController greenAnimator;
-    public RuntimeAnimatorController yellowAnimator; // Added Yellow
+    [Header("Override Controllers")]
+    public RuntimeAnimatorController redOverride;
+    public RuntimeAnimatorController blueOverride;
+    public RuntimeAnimatorController greenOverride;
+    public RuntimeAnimatorController yellowOverride;
 
-    private SpriteRenderer spriteRenderer;
+    private ColorAbility currentAbility;
     private Animator anim;
-    public ColorAbility CurrentAbility { get; private set; }
+    private SpriteRenderer spriteRenderer;
 
-    void Awake()
+    private void Start()
     {
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void Start()
+    private void Update()
     {
-        if (redAbility != null) SwitchColor(redAbility, redAnimator);
+        if (Input.GetKeyDown(KeyCode.Alpha1)) SwitchColor(redAbility);
+        if (Input.GetKeyDown(KeyCode.Alpha2)) SwitchColor(blueAbility);
+        if (Input.GetKeyDown(KeyCode.Alpha3)) SwitchColor(greenAbility);
+        if (Input.GetKeyDown(KeyCode.Alpha4)) SwitchColor(yellowAbility);
+
+        if (Input.GetButtonDown("Fire1") && currentAbility != null)
+        {
+            currentAbility.OnBasicAttack();
+        }
     }
 
-    void Update()
+    public void SwitchColor(ColorAbility newAbility)
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) SwitchColor(redAbility, redAnimator);
-        if (Input.GetKeyDown(KeyCode.Alpha2)) SwitchColor(blueAbility, blueAnimator);
-        if (Input.GetKeyDown(KeyCode.Alpha3)) SwitchColor(greenAbility, greenAnimator);
-        if (Input.GetKeyDown(KeyCode.Alpha4)) SwitchColor(yellowAbility, yellowAnimator);
+        if (newAbility == null || currentAbility == newAbility) return;
+
+        if (currentAbility != null) currentAbility.OnDeactivate();
+
+        currentAbility = newAbility;
+        currentAbility.OnActivate();
+
+        if (currentAbility == redAbility) anim.runtimeAnimatorController = redOverride;
+        else if (currentAbility == blueAbility) anim.runtimeAnimatorController = blueOverride;
+        else if (currentAbility == greenAbility) anim.runtimeAnimatorController = greenOverride;
+        else if (currentAbility == yellowAbility) anim.runtimeAnimatorController = yellowOverride;
+
+        if (spriteRenderer != null) spriteRenderer.color = currentAbility.abilityColor;
     }
 
-    public void SwitchColor(ColorAbility newAbility, RuntimeAnimatorController newAnim)
-    {
-        if (newAbility == null) return;
-
-        if (CurrentAbility != null) CurrentAbility.OnDeactivate();
-
-        CurrentAbility = newAbility;
-        CurrentAbility.OnActivate();
-
-        spriteRenderer.color = newAbility.abilityColor;
-
-        if (newAnim != null) anim.runtimeAnimatorController = newAnim;
-
-        Debug.Log($"Switched to {newAbility.GetType().Name}");
-    }
+    public ColorAbility GetCurrentAbility() => currentAbility;
 }

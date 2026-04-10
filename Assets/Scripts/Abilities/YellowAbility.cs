@@ -2,18 +2,11 @@ using UnityEngine;
 
 public class YellowAbility : ColorAbility
 {
-    [Header("Movement")]
+    [Header("Yellow Settings")]
     public float speedMultiplier = 1.5f;
-    public float hoverFallSpeed = -0.5f;
-
-    [Header("Combat")]
-    public float damageRadius = 2f;
-    public int contactDamage = 1;
-    public float damageInterval = 0.5f;
-    public LayerMask enemyLayer;
+    public float hoverFallSpeed = -0.8f;
 
     private Rigidbody2D rb;
-    private float nextDamageTime;
 
     protected override void Awake()
     {
@@ -24,61 +17,46 @@ public class YellowAbility : ColorAbility
     public override void OnActivate()
     {
         base.OnActivate();
-        // Increase player speed when turning Yellow
-        // Note: This assumes your PlayerController has a 'moveSpeed' variable
-        GetComponent<PlayerController>().SetSpeedMultiplier(speedMultiplier);
+        if (playerController != null)
+        {
+            playerController.SetSpeedMultiplier(speedMultiplier);
+        }
     }
 
     public override void OnDeactivate()
     {
         base.OnDeactivate();
-        // Reset speed when leaving Yellow
-        GetComponent<PlayerController>().SetSpeedMultiplier(1f);
+        if (playerController != null)
+        {
+            playerController.SetSpeedMultiplier(1f);
+        }
+        if (animator != null)
+        {
+            animator.SetBool("isHovering", false);
+        }
     }
 
     private void Update()
     {
         if (!enabled) return;
 
-        HandleHover();
-        HandleAoEDamage();
-    }
-
-    private void HandleHover()
-    {
-        if (Input.GetKey(KeyCode.Space) && rb.linearVelocity.y < 0)
+        if (Input.GetKey(KeyCode.Space) && rb != null && rb.linearVelocity.y < 0)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, hoverFallSpeed);
-            animator.SetBool("isHovering", true);
+            if (animator != null) animator.SetBool("isHovering", true);
         }
         else
         {
-            animator.SetBool("isHovering", false);
+            if (animator != null) animator.SetBool("isHovering", false);
         }
     }
 
-    private void HandleAoEDamage()
+    public override void OnBasicAttack()
     {
-        if (Time.time >= nextDamageTime)
-        {
-            // Find all enemies in range and zap them
-            Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, damageRadius, enemyLayer);
-            foreach (var enemy in enemies)
-            {
-                if (enemy.TryGetComponent<Health>(out var health))
-                {
-                    health.UpdateHealth(-contactDamage);
-                }
-            }
-            nextDamageTime = Time.time + damageInterval;
-        }
+        if (animator != null) animator.SetTrigger("attack");
     }
 
-    public override void OnSpecialAbility() { /* Reserved for extra effects */ }
-
-    private void OnDrawGizmosSelected()
+    public override void OnSpecialAbility()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, damageRadius);
     }
 }

@@ -2,63 +2,36 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [Header("Settings")]
-    public Transform attackPoint;
-    public LayerMask enemyLayers;
-    public float attackRange = 0.8f;
-    public float attackCooldown = 0.4f;
-
-    private float lastAttackTime;
-    private ColorAbilityHandler abilityHandler;
-    private Animator animator;
+    private ColorAbilityHandler colorHandler;
+    private Animator anim;
 
     private void Awake()
     {
-        abilityHandler = GetComponent<ColorAbilityHandler>();
-        animator = GetComponent<Animator>();
+        colorHandler = GetComponent<ColorAbilityHandler>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R) && Time.time >= lastAttackTime + attackCooldown)
+        if (Input.GetButtonDown("Fire1"))
         {
-            lastAttackTime = Time.time;
             PerformAttack();
-        }
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            abilityHandler?.CurrentAbility?.OnSpecialAbility();
         }
     }
 
     private void PerformAttack()
     {
-        // Check if the current color has a special R-key move
-        bool customHandled = abilityHandler?.CurrentAbility?.OnBasicAttack() ?? false;
-
-        if (!customHandled)
+        if (colorHandler != null && colorHandler.GetCurrentAbility() != null)
         {
-            animator.SetTrigger("attack");
-            DoMeleeHit(1f);
+            colorHandler.GetCurrentAbility().OnBasicAttack();
         }
     }
 
-    public void DoMeleeHit(float damage)
+    public void OnAttackImpact()
     {
-        if (attackPoint == null) return;
-        Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-        foreach (var hit in hits)
+        if (colorHandler != null && colorHandler.GetCurrentAbility() != null)
         {
-            if (hit.TryGetComponent<Health>(out var health))
-                health.UpdateHealth(-(int)damage);
+            colorHandler.GetCurrentAbility().OnSpecialAbility();
         }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        if (attackPoint == null) return;
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
