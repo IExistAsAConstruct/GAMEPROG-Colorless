@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 3;
     private int currentHealth;
@@ -13,11 +13,15 @@ public class Health : MonoBehaviour
     public void UpdateHealth(int amount)
     {
         currentHealth += amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
         if (amount < 0)
         {
-            // Optional: Play a "get hit" animation here
             Debug.Log(gameObject.name + " took damage! Health: " + currentHealth);
+        }
+        else if (amount > 0)
+        {
+            Debug.Log(gameObject.name + " healed! Health: " + currentHealth);
         }
 
         if (currentHealth <= 0)
@@ -28,8 +32,6 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        // No ScoreManager call here! 
-        // Just destroy the object or play a death animation.
         Debug.Log(gameObject.name + " destroyed.");
         Destroy(gameObject);
     }

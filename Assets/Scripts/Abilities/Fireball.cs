@@ -2,51 +2,41 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
-    public float speed = 15f;
-    public int damage = 1;
-    public float lifetime = 3f;
-    private Rigidbody2D rb;
+    public float speed = 10f;
+    public int damage = -1;
+    private Vector2 direction;
 
-    private void Awake()
+    public void Launch(Vector2 launchDirection)
     {
-        rb = GetComponent<Rigidbody2D>();
+        direction = launchDirection;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        Destroy(gameObject, 3f);
     }
 
-    private void Start()
+    void Update()
     {
-        Destroy(gameObject, lifetime);
-    }
-
-    public void Launch(bool facingRight)
-    {
-        float direction = facingRight ? 1f : -1f;
-        rb.linearVelocity = new Vector2(direction * speed, 0);
-
-        if (!facingRight)
-        {
-            transform.Rotate(0f, 180f, 0f);
-        }
+        transform.Translate(Vector2.right * speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Player") || collision.gameObject.name.Contains("Fireball"))
         {
-            Health enemyHealth = collision.GetComponent<Health>();
-            if (enemyHealth != null)
-            {
-                enemyHealth.UpdateHealth(-damage);
-            }
-            Explode();
+            return;
         }
-        else if (collision.CompareTag("Wall") || collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
-        {
-            Explode();
-        }
-    }
 
-    private void Explode()
-    {
-        Destroy(gameObject);
+        PlayerHealth targetHealth = collision.GetComponent<PlayerHealth>();
+
+        if (targetHealth != null)
+        {
+            targetHealth.UpdateHealth(damage);
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

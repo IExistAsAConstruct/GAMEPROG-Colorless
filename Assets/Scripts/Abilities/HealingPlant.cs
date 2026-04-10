@@ -14,7 +14,7 @@ public class SentryPlant : MonoBehaviour
             Collider2D enemy = Physics2D.OverlapCircle(transform.position, range, enemyLayer);
             if (enemy != null)
             {
-                if (enemy.TryGetComponent<Health>(out var h)) h.UpdateHealth(-1);
+                if (enemy.TryGetComponent<PlayerHealth>(out var h)) h.UpdateHealth(-1);
                 nextFire = Time.time + fireRate;
             }
         }

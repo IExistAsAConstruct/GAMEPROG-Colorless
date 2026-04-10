@@ -2,41 +2,53 @@ using UnityEngine;
 
 public class GreenSentry : MonoBehaviour
 {
-    [Header("Combat Settings")]
-    public float searchRange = 4f;
-    public float fireRate = 1f;
-    public LayerMask targetLayer;
+    [Header("Attack Settings")]
+    public float attackInterval = 1.5f;
+    public float detectionRadius = 3f;
+    public LayerMask enemyLayer;
 
-    private float nextFireTime;
+    [Header("Life Settings")]
+    public float growTime = 1.0f;
 
-    private void Update()
+    private float nextAttackTime;
+    private bool isGrown = false;
+
+    void Start()
     {
-        if (Time.time >= nextFireTime)
+
+        Destroy(gameObject, 4f);
+
+        Invoke("FinishGrowing", growTime);
+    }
+
+    void FinishGrowing()
+    {
+        isGrown = true;
+    }
+
+    void Update()
+    {
+        if (!isGrown) return;
+
+        if (Time.time >= nextAttackTime)
         {
-            FindAndDamageTarget();
+            AttackNearbyEnemies();
+            nextAttackTime = Time.time + attackInterval;
         }
     }
 
-    private void FindAndDamageTarget()
+    void AttackNearbyEnemies()
     {
-        // Search for a collider on the specific layer
-        Collider2D target = Physics2D.OverlapCircle(transform.position, searchRange, targetLayer);
-
-        if (target != null)
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, detectionRadius, enemyLayer);
+        foreach (Collider2D enemy in enemies)
         {
-            // If the target has a Health script, hit it
-            if (target.TryGetComponent<Health>(out var health))
-            {
-                health.UpdateHealth(-1);
-                nextFireTime = Time.time + fireRate;
-                Debug.Log("Sentry hit: " + target.name);
-            }
+            Debug.Log("Sentry attacking: " + enemy.name);
         }
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, searchRange);
+        Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
 }
