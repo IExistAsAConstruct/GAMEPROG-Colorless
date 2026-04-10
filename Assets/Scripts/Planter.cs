@@ -21,4 +21,11 @@ public class Planter : MonoBehaviour
         if (currentVine != null) Destroy(currentVine);
         HasVine = false;
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.up * vineHeight);
+        Gizmos.DrawWireCube(transform.position + Vector3.up * vineHeight, new Vector3(0.5f, 0.1f, 0f));
+    }
 }
