@@ -3,7 +3,6 @@ using UnityEngine;
 public abstract class ColorAbility : MonoBehaviour
 {
     public Color abilityColor;
-
     [HideInInspector] public Animator animator;
     [HideInInspector] public PlayerController playerController;
     [HideInInspector] public PlayerAttack playerAttack;
@@ -18,6 +17,7 @@ public abstract class ColorAbility : MonoBehaviour
 
     public virtual void OnActivate() => enabled = true;
     public virtual void OnDeactivate() => enabled = false;
-    public virtual void OnBasicAttack() { }
-    public abstract void OnSpecialAbility();
+
+    public abstract void OnPrimary();
+    public abstract void OnSecondary();
 }
