@@ -115,6 +115,9 @@ public class ColorAbilities : MonoBehaviour
 
     private void FireJump()
     {
+        if (!canFireJump) return;
+
+        canFireJump = false;
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
         rb.AddForce(Vector2.up * fireJumpForce, ForceMode2D.Impulse);
     }

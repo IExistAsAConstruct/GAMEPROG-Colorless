@@ -46,6 +46,12 @@ TagManager:
   - name: Ground
     uniqueID: 825026251
     locked: 0
+  - name: Liquid
+    uniqueID: 966698353
+    locked: 0
+  - name: Entities
+    uniqueID: 1222134129
+    locked: 0
   - name: Foreground
     uniqueID: 542901965
     locked: 0
