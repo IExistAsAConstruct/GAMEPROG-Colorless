@@ -3229,10 +3229,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbba33ef3411df54fb0235cbd202a35b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimatorSwapper
-  redAnimator: {fileID: 9100000, guid: 95375d08869fa9e41a85598cdf8d821b, type: 2}
-  blueAnimator: {fileID: 9100000, guid: 3ce02972b15abce4b81b94c5e852d373, type: 2}
-  greenAnimator: {fileID: 9100000, guid: c8e4ff7beeae85a4cb6797dd04bdeff2, type: 2}
-  yellowAnimator: {fileID: 9100000, guid: 00f2fdd8620bae446a7beba153434b4b, type: 2}
+  redAnimator: {fileID: 22100000, guid: dc822b68631dfa3409ca33531a3d1ceb, type: 2}
+  blueAnimator: {fileID: 22100000, guid: ada668ffe41b63441b00434b221bca7d, type: 2}
+  greenAnimator: {fileID: 22100000, guid: 1324346c2f61978439819c565206088c, type: 2}
+  yellowAnimator: {fileID: 22100000, guid: d762bead6dcc3d14783c8d30eaf63b36, type: 2}
   whiteAnimator: {fileID: 9100000, guid: 3772ff99cc6b02c40b2d293f2b21a45b, type: 2}
 --- !u!114 &1541994572
 MonoBehaviour:
@@ -3331,10 +3331,6 @@ MonoBehaviour:
   blueAbility: {fileID: 1541994576}
   greenAbility: {fileID: 1541994575}
   yellowAbility: {fileID: 1541994572}
-  redOverride: {fileID: 22100000, guid: dc822b68631dfa3409ca33531a3d1ceb, type: 2}
-  blueOverride: {fileID: 22100000, guid: ada668ffe41b63441b00434b221bca7d, type: 2}
-  greenOverride: {fileID: 22100000, guid: 1324346c2f61978439819c565206088c, type: 2}
-  yellowOverride: {fileID: 22100000, guid: d762bead6dcc3d14783c8d30eaf63b36, type: 2}
 --- !u!114 &1541994578
 MonoBehaviour:
   m_ObjectHideFlags: 0

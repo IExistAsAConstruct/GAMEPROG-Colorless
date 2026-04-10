@@ -14,40 +14,63 @@ public class ColorAbilityHandler : MonoBehaviour
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (ColorManager.Instance != null)
+        {
+            ColorManager.Instance.OnColorChanged += HandleColorChange;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (ColorManager.Instance != null)
+        {
+            ColorManager.Instance.OnColorChanged -= HandleColorChange;
+        }
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) SwitchColor(redAbility);
-        if (Input.GetKeyDown(KeyCode.Alpha2)) SwitchColor(blueAbility);
-        if (Input.GetKeyDown(KeyCode.Alpha3)) SwitchColor(greenAbility);
-        if (Input.GetKeyDown(KeyCode.Alpha4)) SwitchColor(yellowAbility);
-
         if (currentAbility != null)
         {
-            if (Input.GetButtonDown("Fire1"))
-            {
-                currentAbility.OnBasicAttack();
-            }
-
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                currentAbility.OnSpecialAbility();
-            }
+            if (Input.GetButtonDown("Fire1")) currentAbility.OnBasicAttack();
+            if (Input.GetKeyDown(KeyCode.F)) currentAbility.OnSpecialAbility();
         }
+    }
+
+    private void HandleColorChange(ColorType newColor)
+    {
+        ColorAbility targetAbility = newColor switch
+        {
+            ColorType.Red => redAbility,
+            ColorType.Blue => blueAbility,
+            ColorType.Green => greenAbility,
+            ColorType.Yellow => yellowAbility,
+            _ => null
+        };
+
+        SwitchColor(targetAbility);
     }
 
     public void SwitchColor(ColorAbility newAbility)
     {
-        if (newAbility == null || currentAbility == newAbility) return;
+        if (currentAbility == newAbility) return;
 
         if (currentAbility != null) currentAbility.OnDeactivate();
 
         currentAbility = newAbility;
-        currentAbility.OnActivate();
 
-        if (spriteRenderer != null) spriteRenderer.color = currentAbility.abilityColor;
+        if (currentAbility != null)
+        {
+            currentAbility.OnActivate();
+            if (spriteRenderer != null) spriteRenderer.color = currentAbility.abilityColor;
+        }
+        else
+        {
+            if (spriteRenderer != null) spriteRenderer.color = Color.white;
+        }
     }
 
+    // ADD THIS LINE BELOW TO FIX THE ERRORS
     public ColorAbility GetCurrentAbility() => currentAbility;
 }

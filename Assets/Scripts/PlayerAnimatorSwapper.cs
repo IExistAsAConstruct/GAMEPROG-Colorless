@@ -33,15 +33,6 @@ public class PlayerAnimatorSwapper : MonoBehaviour
     {
         if (animator == null) return;
 
-        float currentSpeed = animator.GetFloat("Speed");
-        float currentY = animator.GetFloat("yVelocity");
-        bool currentGrounded = animator.GetBool("isGrounded");
-        bool currentClimbing = animator.GetBool("isClimbing");
-
-        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-        float playbackTime = stateInfo.normalizedTime;
-        int stateHash = stateInfo.shortNameHash;
-
         RuntimeAnimatorController newController = colorType switch
         {
             ColorType.Red => redAnimator,
@@ -51,16 +42,25 @@ public class PlayerAnimatorSwapper : MonoBehaviour
             _ => whiteAnimator
         };
 
-        if (newController != null && animator.runtimeAnimatorController != newController)
-        {
-            animator.runtimeAnimatorController = newController;
+        // THE LOCK: If the controller is already set, do nothing.
+        if (animator.runtimeAnimatorController == newController) return;
 
-            animator.SetFloat("Speed", currentSpeed);
-            animator.SetFloat("yVelocity", currentY);
-            animator.SetBool("isGrounded", currentGrounded);
-            animator.SetBool("isClimbing", currentClimbing);
+        float currentSpeed = animator.GetFloat("Speed");
+        float currentY = animator.GetFloat("yVelocity");
+        bool currentGrounded = animator.GetBool("isGrounded");
+        bool currentClimbing = animator.GetBool("isClimbing");
 
-            animator.Play(stateHash, 0, playbackTime);
-        }
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        float playbackTime = stateInfo.normalizedTime;
+        int stateHash = stateInfo.shortNameHash;
+
+        animator.runtimeAnimatorController = newController;
+
+        animator.SetFloat("Speed", currentSpeed);
+        animator.SetFloat("yVelocity", currentY);
+        animator.SetBool("isGrounded", currentGrounded);
+        animator.SetBool("isClimbing", currentClimbing);
+
+        animator.Play(stateHash, 0, playbackTime);
     }
 }
