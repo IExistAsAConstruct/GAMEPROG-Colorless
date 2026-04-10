@@ -6,61 +6,55 @@ public class PlayerAnimatorSwapper : MonoBehaviour
     [SerializeField] private RuntimeAnimatorController blueAnimator;
     [SerializeField] private RuntimeAnimatorController greenAnimator;
     [SerializeField] private RuntimeAnimatorController yellowAnimator;
-    [SerializeField] private RuntimeAnimatorController whiteAnimator;
+    [SerializeField] private RuntimeAnimatorController defaultAnimator;
 
     private Animator animator;
 
     private void Awake() => animator = GetComponent<Animator>();
 
-    private void Start()
+    private void OnEnable()
     {
-        if (ColorManager.Instance != null)
+        if (ColorSystem.Instance != null)
         {
-            ColorManager.Instance.OnColorChanged += ApplyAnimator;
-            ApplyAnimator(ColorManager.Instance.CurrentColor);
+            ColorSystem.Instance.OnColorChanged += ApplyAnimator;
+            ApplyAnimator(ColorSystem.Instance.CurrentColor);
         }
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
-        if (ColorManager.Instance != null)
-        {
-            ColorManager.Instance.OnColorChanged -= ApplyAnimator;
-        }
+        if (ColorSystem.Instance != null)
+            ColorSystem.Instance.OnColorChanged -= ApplyAnimator;
     }
 
-    private void ApplyAnimator(ColorType colorType)
+    private void ApplyAnimator(PlayerColor color)
     {
         if (animator == null) return;
-
-        RuntimeAnimatorController newController = colorType switch
-        {
-            ColorType.Red => redAnimator,
-            ColorType.Blue => blueAnimator,
-            ColorType.Green => greenAnimator,
-            ColorType.Yellow => yellowAnimator,
-            _ => whiteAnimator
-        };
-
-        // THE LOCK: If the controller is already set, do nothing.
-        if (animator.runtimeAnimatorController == newController) return;
 
         float currentSpeed = animator.GetFloat("Speed");
         float currentY = animator.GetFloat("yVelocity");
         bool currentGrounded = animator.GetBool("isGrounded");
         bool currentClimbing = animator.GetBool("isClimbing");
-
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-        float playbackTime = stateInfo.normalizedTime;
-        int stateHash = stateInfo.shortNameHash;
 
-        animator.runtimeAnimatorController = newController;
+        RuntimeAnimatorController newController = color switch
+        {
+            PlayerColor.Red => redAnimator,
+            PlayerColor.Blue => blueAnimator,
+            PlayerColor.Green => greenAnimator,
+            PlayerColor.Yellow => yellowAnimator,
+            _ => defaultAnimator
+        };
 
-        animator.SetFloat("Speed", currentSpeed);
-        animator.SetFloat("yVelocity", currentY);
-        animator.SetBool("isGrounded", currentGrounded);
-        animator.SetBool("isClimbing", currentClimbing);
+        if (newController != null && animator.runtimeAnimatorController != newController)
+        {
+            animator.runtimeAnimatorController = newController;
 
-        animator.Play(stateHash, 0, playbackTime);
+            animator.SetFloat("Speed", currentSpeed);
+            animator.SetFloat("yVelocity", currentY);
+            animator.SetBool("isGrounded", currentGrounded);
+            animator.SetBool("isClimbing", currentClimbing);
+            animator.Play(stateInfo.shortNameHash, 0, stateInfo.normalizedTime);
+        }
     }
 }
