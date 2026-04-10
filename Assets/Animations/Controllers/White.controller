@@ -166,7 +166,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: White Idle Spritesheet_0
+  m_Name: White
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: moveSpeed
@@ -230,13 +230,13 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -6804736788492207749}
-    m_Position: {x: 210, y: 90, z: 0}
+    m_Position: {x: 270, y: 90, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4580221808552686941}
-    m_Position: {x: 320, y: 180, z: 0}
+    m_Position: {x: 520, y: 180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -9148594802864983915}
-    m_Position: {x: 530, y: 30, z: 0}
+    m_Position: {x: 530, y: 10, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -393481823718024034}
