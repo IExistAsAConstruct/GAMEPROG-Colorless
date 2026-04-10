@@ -1,0 +1,384 @@
+fileFormatVersion: 2
+guid: ab74a9f91a5edb34b93bfb26486808c7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3956722719440555267
+    second: Yellow_Electric_Spritesheet_0
+  - first:
+      213: -6033413582384384016
+    second: Yellow_Electric_Spritesheet_1
+  - first:
+      213: 5993565103105831716
+    second: Yellow_Electric_Spritesheet_2
+  - first:
+      213: -5881811534060196247
+    second: Yellow_Electric_Spritesheet_3
+  - first:
+      213: 6717660336900664069
+    second: Yellow_Electric_Spritesheet_4
+  - first:
+      213: 5181088919243547059
+    second: Yellow_Electric_Spritesheet_5
+  - first:
+      213: -5163948945112091118
+    second: Yellow_Electric_Spritesheet_6
+  - first:
+      213: -682207508362630663
+    second: Yellow_Electric_Spritesheet_7
+  - first:
+      213: 5620482062082620902
+    second: Yellow_Electric_Spritesheet_8
+  - first:
+      213: -4341590156468021421
+    second: Yellow_Electric_Spritesheet_9
+  - first:
+      213: -2321376703727193951
+    second: Yellow_Electric_Spritesheet_10
+  - first:
+      213: 6592160972824032790
+    second: Yellow_Electric_Spritesheet_11
+  - first:
+      213: -5565148438751394106
+    second: Yellow_Electric_Spritesheet_12
+  - first:
+      213: 2666450609020415605
+    second: Yellow_Electric_Spritesheet_13
+  - first:
+      213: -2896386904198124554
+    second: Yellow_Electric_Spritesheet_14
+  - first:
+      213: -4552492757478590858
+    second: Yellow_Electric_Spritesheet_15
+  - first:
+      213: 1937371608990383332
+    second: Yellow_Electric_Spritesheet_16
+  - first:
+      213: 8322534774063734723
+    second: Yellow_Electric_Spritesheet_17
+  - first:
+      213: -4786457822343468629
+    second: Yellow_Electric_Spritesheet_18
+  - first:
+      213: 8796127591797939273
+    second: Yellow_Electric_Spritesheet_19
+  - first:
+      213: -2946449710134416829
+    second: Yellow_Electric_Spritesheet_20
+  - first:
+      213: 2061224481618303327
+    second: Yellow_Electric_Spritesheet_21
+  - first:
+      213: 1102735019472522656
+    second: Yellow_Electric_Spritesheet_22
+  - first:
+      213: -4571577393764479267
+    second: Yellow_Electric_Spritesheet_23
+  - first:
+      213: 479643575670138618
+    second: Yellow_Electric_Spritesheet_24
+  - first:
+      213: -8604279056742122818
+    second: Yellow_Electric_Spritesheet_25
+  - first:
+      213: 6599872167919824283
+    second: Yellow_Electric_Spritesheet_26
+  - first:
+      213: -4992445327801333100
+    second: Yellow_Electric_Spritesheet_27
+  - first:
+      213: 5239563449520967979
+    second: Yellow_Electric_Spritesheet_28
+  - first:
+      213: 8504970143450782491
+    second: Yellow_Electric_Spritesheet_29
+  - first:
+      213: -7830090310790516971
+    second: Yellow_Electric_Spritesheet_30
+  - first:
+      213: -6150133625270375760
+    second: Yellow_Electric_Spritesheet_31
+  - first:
+      213: -7174471766989980227
+    second: Yellow_Electric_Spritesheet_32
+  - first:
+      213: 6235796846391828278
+    second: Yellow_Electric_Spritesheet_33
+  - first:
+      213: 5784922725389207939
+    second: Yellow_Electric_Spritesheet_34
+  - first:
+      213: -277104062015516189
+    second: Yellow_Electric_Spritesheet_35
+  - first:
+      213: -563568039897829754
+    second: Yellow_Electric_Spritesheet_36
+  - first:
+      213: 5745411571942715918
+    second: Yellow_Electric_Spritesheet_37
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Yellow_Electric_Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 338
+        width: 405
+        height: 429
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30dc8f6895a19e630800000000000000
+      internalID: 3956722719440555267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yellow_Electric_Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 2282
+        y: 301
+        width: 449
+        height: 446
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f736fe2052054ca0800000000000000
+      internalID: -6033413582384384016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yellow_Electric_Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 3273
+        y: 294
+        width: 488
+        height: 436
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 423fcccb4bb6d2350800000000000000
+      internalID: 5993565103105831716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yellow_Electric_Spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 372
+        width: 279
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 830efd83f1b5f044f8cc841133c44ef6
+      internalID: 5745411571942715918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yellow_Electric_Spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 4288
+        y: 326
+        width: 447
+        height: 363
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 692c573119a96a34cab61c59cc070f1d
+      internalID: -1025477009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6217947d6ea0ec84ca8b143cd653d01f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Yellow_Electric_Spritesheet_0: 3956722719440555267
+      Yellow_Electric_Spritesheet_1: -6033413582384384016
+      Yellow_Electric_Spritesheet_10: -2321376703727193951
+      Yellow_Electric_Spritesheet_11: 6592160972824032790
+      Yellow_Electric_Spritesheet_12: -5565148438751394106
+      Yellow_Electric_Spritesheet_13: 2666450609020415605
+      Yellow_Electric_Spritesheet_14: -2896386904198124554
+      Yellow_Electric_Spritesheet_15: -4552492757478590858
+      Yellow_Electric_Spritesheet_16: 1937371608990383332
+      Yellow_Electric_Spritesheet_17: 8322534774063734723
+      Yellow_Electric_Spritesheet_18: -4786457822343468629
+      Yellow_Electric_Spritesheet_19: 8796127591797939273
+      Yellow_Electric_Spritesheet_2: 5993565103105831716
+      Yellow_Electric_Spritesheet_20: -2946449710134416829
+      Yellow_Electric_Spritesheet_21: 2061224481618303327
+      Yellow_Electric_Spritesheet_22: 1102735019472522656
+      Yellow_Electric_Spritesheet_23: -4571577393764479267
+      Yellow_Electric_Spritesheet_24: 479643575670138618
+      Yellow_Electric_Spritesheet_25: -8604279056742122818
+      Yellow_Electric_Spritesheet_26: 6599872167919824283
+      Yellow_Electric_Spritesheet_27: -4992445327801333100
+      Yellow_Electric_Spritesheet_28: 5239563449520967979
+      Yellow_Electric_Spritesheet_29: 8504970143450782491
+      Yellow_Electric_Spritesheet_3: -5881811534060196247
+      Yellow_Electric_Spritesheet_30: -7830090310790516971
+      Yellow_Electric_Spritesheet_31: -6150133625270375760
+      Yellow_Electric_Spritesheet_32: -7174471766989980227
+      Yellow_Electric_Spritesheet_33: 6235796846391828278
+      Yellow_Electric_Spritesheet_34: 5784922725389207939
+      Yellow_Electric_Spritesheet_35: -277104062015516189
+      Yellow_Electric_Spritesheet_36: 1797120767
+      Yellow_Electric_Spritesheet_37: 5745411571942715918
+      Yellow_Electric_Spritesheet_38: 1906011171
+      Yellow_Electric_Spritesheet_39: -2049454648
+      Yellow_Electric_Spritesheet_4: 6717660336900664069
+      Yellow_Electric_Spritesheet_40: -1025477009
+      Yellow_Electric_Spritesheet_5: 5181088919243547059
+      Yellow_Electric_Spritesheet_6: -5163948945112091118
+      Yellow_Electric_Spritesheet_7: -682207508362630663
+      Yellow_Electric_Spritesheet_8: 5620482062082620902
+      Yellow_Electric_Spritesheet_9: -4341590156468021421
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
