@@ -2,18 +2,20 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - IceWall
+  - Ladder
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Player
+  - Liquid
+  - Enemy
   - 
   - 
   - 
@@ -41,3 +43,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Liquid
+    uniqueID: 3434335399
+    locked: 0
+  - name: Ground
+    uniqueID: 825026251
+    locked: 0
+  - name: Vines
+    uniqueID: 2776514165
+    locked: 0
+  - name: Entities
+    uniqueID: 1505840005
+    locked: 0
+  m_RenderingLayers:
+  - Default
