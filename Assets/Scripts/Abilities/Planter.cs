@@ -12,8 +12,10 @@ public class Planter : MonoBehaviour
         if (HasVine) return;
 
         HasVine = true;
-        currentVine = Instantiate(vinePrefab, transform.position, Quaternion.identity, transform);
-        currentVine.transform.localScale = new Vector3(1f, vineHeight, 1f);
+        currentVine = Instantiate(vinePrefab, transform.position, Quaternion.identity);
+
+        Vine vine = currentVine.GetComponent<Vine>();
+        if (vine != null) vine.Grow(vineHeight);
     }
 
     public void ClearVine()

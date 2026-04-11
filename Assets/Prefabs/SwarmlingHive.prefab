@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1888347542217512395}
   - component: {fileID: 6113442493923499533}
   - component: {fileID: 8146670673726746423}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: SwarmlingHive
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,11 +171,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c224d047a2e34f04e8672e6199c69594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwarmlingHive
-  chaseRadius: 8
-  swarmlingPrefab: {fileID: 0}
+  chaseRadius: 26.02
+  swarmlingPrefab: {fileID: 4298103095951961940, guid: 2cc712875bb18fe4d9805cfcafaa11a1, type: 3}
   maxSwarmlings: 6
   spawnInterval: 2
-  spawnRadius: 1.5
+  spawnRadius: 7.78
 --- !u!1 &8635274826816796341
 GameObject:
   m_ObjectHideFlags: 0

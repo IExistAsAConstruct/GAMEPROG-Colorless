@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8785018234049053179}
   - component: {fileID: 6938266561789570453}
   - component: {fileID: 4614528795669480862}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: Goliath
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

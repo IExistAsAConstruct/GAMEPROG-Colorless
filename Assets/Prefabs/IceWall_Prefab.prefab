@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2915930400735168766}
   m_Layer: 3
   m_Name: IceWall_Prefab
-  m_TagString: Untagged
+  m_TagString: IceWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

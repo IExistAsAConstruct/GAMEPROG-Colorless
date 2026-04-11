@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 6344637022098577325}
   - component: {fileID: 4215805112142209142}
   - component: {fileID: 8853232316631455787}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Swarmling
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

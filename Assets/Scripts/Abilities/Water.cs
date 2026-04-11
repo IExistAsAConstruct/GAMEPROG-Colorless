@@ -3,7 +3,7 @@ using UnityEngine;
 public class Water : MonoBehaviour
 {
     public Sprite frozenSprite;
-    public float freezeTime = 5f;
+    [SerializeField] private float unfreezeDelay = 0.5f;
 
     private Sprite originalSprite;
     private SpriteRenderer sr;
@@ -26,16 +26,21 @@ public class Water : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("Ground");
 
         if (col != null) col.isTrigger = false;
+    }
 
-        Invoke("Unfreeze", freezeTime);
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (!isFrozen) return;
+        if (!collision.gameObject.CompareTag("Player")) return;
+
+        // Small delay so it doesn't vanish the instant you jump
+        Invoke(nameof(Unfreeze), unfreezeDelay);
     }
 
     void Unfreeze()
     {
         isFrozen = false;
         sr.sprite = originalSprite;
-
-        // Match this to the layer your BlueAbility looks for
         gameObject.layer = LayerMask.NameToLayer("Water");
 
         if (col != null) col.isTrigger = true;
