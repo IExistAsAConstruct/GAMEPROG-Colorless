@@ -51,8 +51,7 @@ public abstract class EnemyBase : MonoBehaviour
                 Vector2 dir = (collision.transform.position - transform.position).normalized;
                 playerRb.AddForce(dir * knockbackForce, ForceMode2D.Impulse);
             }
-            // Deal damage through whatever health system you have
-            // collision.gameObject.GetComponent<PlayerHealth>()?.TakeDamage(contactDamage);
+            collision.gameObject.GetComponent<PlayerHealth>()?.TakeDamage(contactDamage);
         }
     }
 }

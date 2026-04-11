@@ -5,28 +5,28 @@ public class GreenSentry : MonoBehaviour
     [Header("Attack Settings")]
     public float attackInterval = 1.5f;
     public float detectionRadius = 3f;
+    public int damage = 1;
     public LayerMask enemyLayer;
 
     [Header("Life Settings")]
     public float growTime = 1.0f;
+    public float lifetime = 4f;
 
     private float nextAttackTime;
     private bool isGrown = false;
 
-    void Start()
+    private void Start()
     {
-
-        Destroy(gameObject, 4f);
-
-        Invoke("FinishGrowing", growTime);
+        Destroy(gameObject, lifetime);
+        Invoke(nameof(FinishGrowing), growTime);
     }
 
-    void FinishGrowing()
+    private void FinishGrowing()
     {
         isGrown = true;
     }
 
-    void Update()
+    private void Update()
     {
         if (!isGrown) return;
 
@@ -37,12 +37,13 @@ public class GreenSentry : MonoBehaviour
         }
     }
 
-    void AttackNearbyEnemies()
+    private void AttackNearbyEnemies()
     {
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, detectionRadius, enemyLayer);
         foreach (Collider2D enemy in enemies)
         {
-            Debug.Log("Sentry attacking: " + enemy.name);
+            var target = enemy.GetComponent<EnemyBase>();
+            if (target != null) target.TakeDamage(damage);
         }
     }
 

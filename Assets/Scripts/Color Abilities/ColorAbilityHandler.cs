@@ -9,23 +9,17 @@ public class ColorAbilityHandler : MonoBehaviour
     public ColorAbility yellowAbility;
 
     private ColorAbility currentAbility;
-    private SpriteRenderer spriteRenderer;
 
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         if (ColorManager.Instance != null)
-        {
             ColorManager.Instance.OnColorChanged += HandleColorChange;
-        }
     }
 
     private void OnDestroy()
     {
         if (ColorManager.Instance != null)
-        {
             ColorManager.Instance.OnColorChanged -= HandleColorChange;
-        }
     }
 
     private void Update()
@@ -57,14 +51,7 @@ public class ColorAbilityHandler : MonoBehaviour
         currentAbility = newAbility;
 
         if (currentAbility != null)
-        {
             currentAbility.OnActivate();
-            if (spriteRenderer != null) spriteRenderer.color = currentAbility.abilityColor;
-        }
-        else
-        {
-            if (spriteRenderer != null) spriteRenderer.color = Color.white;
-        }
     }
 
     public ColorAbility GetCurrentAbility() => currentAbility;

@@ -51,12 +51,10 @@ public class GoliathEnemy : EnemyBase
         float dist = Vector2.Distance(transform.position, player.position);
         if (dist > aggroRange) return;
 
-        // Face the player
         if ((player.position.x > transform.position.x && !isFacingRight) ||
             (player.position.x < transform.position.x && isFacingRight))
             Flip();
 
-        // Attack priority: slam if close, lob if at range, otherwise walk
         if (dist <= slamRange && slamTimer <= 0f)
         {
             StartSlam();
@@ -67,7 +65,6 @@ public class GoliathEnemy : EnemyBase
         }
         else
         {
-            // Walk toward player
             float dir = player.position.x > transform.position.x ? 1f : -1f;
             rb.linearVelocity = new Vector2(dir * moveSpeed, rb.linearVelocity.y);
         }
@@ -79,7 +76,6 @@ public class GoliathEnemy : EnemyBase
         isSlamming = true;
         slamWindUpTimer = slamWindUp;
         rb.linearVelocity = Vector2.zero;
-        // Trigger wind-up animation here
     }
 
     private void ExecuteSlam()
@@ -87,11 +83,10 @@ public class GoliathEnemy : EnemyBase
         isSlamming = false;
         slamTimer = slamCooldown;
 
-        // AoE damage check
         Collider2D hit = Physics2D.OverlapCircle(transform.position, slamRadius, playerLayer);
         if (hit != null)
         {
-            // hit.GetComponent<PlayerHealth>()?.TakeDamage(slamDamage);
+            hit.GetComponent<PlayerHealth>()?.TakeDamage(slamDamage);
             var hitRb = hit.GetComponent<Rigidbody2D>();
             if (hitRb != null)
             {

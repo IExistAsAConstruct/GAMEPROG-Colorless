@@ -21,6 +21,7 @@ public class BlueAbility : ColorAbility
         spawnPos.y = transform.position.y;
 
         GameObject wall = Instantiate(iceWallPrefab, spawnPos, Quaternion.identity);
+        wall.tag = "IceWall";
         Destroy(wall, wallDuration);
     }
 
@@ -29,14 +30,10 @@ public class BlueAbility : ColorAbility
         if (animator != null) animator.SetTrigger("attack");
 
         Collider2D[] hitWater = Physics2D.OverlapCircleAll(transform.position, freezeRadius, waterLayer);
-
         foreach (var obj in hitWater)
         {
             Water water = obj.GetComponent<Water>();
-            if (water != null)
-            {
-                water.Freeze();
-            }
+            if (water != null) water.Freeze();
         }
     }
 }

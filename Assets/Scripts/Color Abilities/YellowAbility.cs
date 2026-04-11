@@ -4,13 +4,14 @@ public class YellowAbility : ColorAbility
 {
     [Header("Movement")]
     public float speedBoostMultiplier = 1.6f;
-    public float hoverFallSpeed = -0.5f;
+    public float hoverGravityScale = 0.1f;
 
-    [Header("Electricity")]
+    [Header("Electricity (Primary)")]
     public GameObject electricPrefab;
     private GameObject currentElectricEffect;
 
     private Rigidbody2D rb;
+    private bool isHovering;
 
     protected override void Awake()
     {
@@ -28,6 +29,7 @@ public class YellowAbility : ColorAbility
     {
         base.OnDeactivate();
         if (playerController != null) playerController.SetSpeedMultiplier(1f);
+        StopHover();
         StopElectricity();
     }
 
@@ -35,33 +37,42 @@ public class YellowAbility : ColorAbility
     {
         if (currentElectricEffect == null && electricPrefab != null)
         {
-            // We spawn it as a child of the player so it follows you
             currentElectricEffect = Instantiate(electricPrefab, transform.position, Quaternion.identity, transform);
-
-            // This ensures it stays centered on the player
             currentElectricEffect.transform.localPosition = Vector3.zero;
-
             Invoke(nameof(StopElectricity), 1.0f);
         }
     }
 
-    public override void OnSecondary() { }
+    public override void OnSecondary()
+    {
+        StartHover();
+    }
 
     private void Update()
     {
         if (!enabled) return;
 
-        bool isHoldingHover = Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.R);
+        // Hold R to hover, release to stop
+        if (isHovering && !Input.GetKey(KeyCode.R))
+            StopHover();
+    }
 
-        if (isHoldingHover && rb != null && rb.linearVelocity.y < 0)
-        {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, hoverFallSpeed);
-            if (animator != null) animator.SetBool("isHovering", true);
-        }
-        else
-        {
-            if (animator != null) animator.SetBool("isHovering", false);
-        }
+    private void StartHover()
+    {
+        if (isHovering) return;
+        isHovering = true;
+        playerController.SetGravityOverride(true);
+        rb.gravityScale = hoverGravityScale;
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
+        if (animator != null) animator.SetBool("isHovering", true);
+    }
+
+    private void StopHover()
+    {
+        if (!isHovering) return;
+        isHovering = false;
+        playerController.SetGravityOverride(false);
+        if (animator != null) animator.SetBool("isHovering", false);
     }
 
     private void StopElectricity()
