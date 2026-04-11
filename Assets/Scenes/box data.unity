@@ -4201,10 +4201,10 @@ MonoBehaviour:
   animator: {fileID: 0}
   playerController: {fileID: 0}
   playerAttack: {fileID: 0}
+  healingPlantPrefab: {fileID: 4625890249740170475, guid: 8c14cabb83b048a49821bce3965f1291, type: 3}
   greenSentryPrefab: {fileID: 1458704474879937859, guid: e80acc3cdccd6254981bd38d7ce53a58, type: 3}
+  maxHealUses: 2
   spawnDistance: 1.5
-  vinePrefab: {fileID: 3958915628982238453, guid: 808c1f409b87e3742af8ea20e5459198, type: 3}
-  vineInteractRange: 10
 --- !u!114 &2027613963
 MonoBehaviour:
   m_ObjectHideFlags: 0
