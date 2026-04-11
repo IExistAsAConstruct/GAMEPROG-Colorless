@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2076927161151205640}
   - component: {fileID: 1374645353306150351}
   - component: {fileID: 7961827906333195258}
+  - component: {fileID: 8985690670370551256}
   m_Layer: 0
   m_Name: HealingPlant
   m_TagString: Untagged
@@ -114,3 +115,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8985690670370551256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4625890249740170475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15bbe6b136dc0e74cb2f1a0044e89bb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GreenSentry
+  attackInterval: 1.5
+  detectionRadius: 3
+  damage: 1
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  growTime: 1
+  lifetime: 4

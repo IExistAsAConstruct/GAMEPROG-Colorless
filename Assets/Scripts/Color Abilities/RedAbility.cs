@@ -23,24 +23,29 @@ public class RedAbility : ColorAbility
     {
         if (!enabled) return;
 
-        // Reset blast jump when grounded
         if (!canBlastJump && playerController.IsGrounded)
             canBlastJump = true;
     }
 
     public override void OnPrimary()
     {
-        // Can't fire until the current fireball is gone
         if (activeFireball != null) return;
 
         if (animator != null) animator.SetTrigger("attack");
 
-        Vector3 spawnDir = playerController.IsFacingRight ? Vector3.right : Vector3.left;
+        bool facingRight = playerController.IsFacingRight;
+        Vector3 spawnDir = facingRight ? Vector3.right : Vector3.left;
         Vector3 spawnPos = transform.position + (spawnDir * spawnDistance);
 
         activeFireball = Instantiate(fireballPrefab, spawnPos, Quaternion.identity);
+
+        activeFireball.transform.localScale = new Vector3(facingRight ? 1f : -1f, 1f, 1f);
+
         Fireball fireball = activeFireball.GetComponent<Fireball>();
-        if (fireball != null) fireball.Launch(spawnDir);
+        if (fireball != null)
+        {
+            fireball.Launch(spawnDir);
+        }
     }
 
     public override void OnSecondary()

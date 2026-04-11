@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
 
-    // State
     private bool isClimbing;
     private bool onLadder;
     private bool isGrounded;
@@ -90,15 +89,9 @@ public class PlayerController : MonoBehaviour
         transform.localScale = s;
     }
 
-    // ── External API (for ColorAbilities, etc.) ─────────
-
     public float FacingSign => IsFacingRight ? 1f : -1f;
-
     public void SetSpeedMultiplier(float value) => speedMultiplier = value;
-
     public void SetGravityOverride(bool active) => gravityOverridden = active;
-
-    // ── Ladder triggers ─────────────────────────────────
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -111,15 +104,6 @@ public class PlayerController : MonoBehaviour
         {
             onLadder = false;
             isClimbing = false;
-        }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        if (groundCheck != null)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         }
     }
 }
