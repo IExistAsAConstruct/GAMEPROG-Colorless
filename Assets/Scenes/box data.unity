@@ -4182,9 +4182,29 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4407397182378791629, guid: 46fb18fce1e42144c93a49cfbdb769ab, type: 3}
+      propertyPath: fireballSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4407397182378791629, guid: 46fb18fce1e42144c93a49cfbdb769ab, type: 3}
+      propertyPath: iceWallPrefab
+      value: 
+      objectReference: {fileID: 5882424384804936731, guid: a95a7a6344952d4468dd7daf2d692f3a, type: 3}
+    - target: {fileID: 4407397182378791629, guid: 46fb18fce1e42144c93a49cfbdb769ab, type: 3}
+      propertyPath: fireballPrefab
+      value: 
+      objectReference: {fileID: 1121320574552016392, guid: 6bd0b55c8e7d57b4c9a468c035ac4257, type: 3}
+    - target: {fileID: 4407397182378791629, guid: 46fb18fce1e42144c93a49cfbdb769ab, type: 3}
+      propertyPath: fireballLifetime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4407397182378791629, guid: 46fb18fce1e42144c93a49cfbdb769ab, type: 3}
       propertyPath: enemyLayer.m_Bits
       value: 512
       objectReference: {fileID: 0}
+    - target: {fileID: 4407397182378791629, guid: 46fb18fce1e42144c93a49cfbdb769ab, type: 3}
+      propertyPath: helperPlantPrefab
+      value: 
+      objectReference: {fileID: 1458704474879937859, guid: e80acc3cdccd6254981bd38d7ce53a58, type: 3}
     - target: {fileID: 4407397182378791629, guid: 46fb18fce1e42144c93a49cfbdb769ab, type: 3}
       propertyPath: liquidLayer.m_Bits
       value: 16

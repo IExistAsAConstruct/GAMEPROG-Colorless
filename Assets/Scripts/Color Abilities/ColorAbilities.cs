@@ -3,14 +3,12 @@
 public class ColorAbilities : MonoBehaviour
 {
     [Header("Red - Fire")]
+    [SerializeField] private GameObject fireballPrefab;
     [SerializeField] private Transform firePoint;
-    [SerializeField] private float flameRange = 3f;
-    [SerializeField] private float flameRadius = 1f;
-    [SerializeField] private float flameDamageRate = 4f; // damage per second
-    [SerializeField] private int flameDamagePerTick = 1;
-    [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private float fireballSpeed = 12f;
+    [SerializeField] private float fireballLifetime = 3f;
     [SerializeField] private float fireJumpForce = 14f;
-    private float flameDamageTimer;
+    private GameObject activeFireball;
 
     [Header("Blue - Ice")]
     [SerializeField] private GameObject iceWallPrefab;
@@ -64,13 +62,11 @@ public class ColorAbilities : MonoBehaviour
         {
             switch (color)
             {
+                case PlayerColor.Red: ShootFireball(); break;
                 case PlayerColor.Blue: PlaceIceWall(); break;
                 case PlayerColor.Green: SpawnHelperPlant(); break;
             }
         }
-
-        if (Input.GetMouseButton(0) && color == PlayerColor.Red)
-            FlameAttack();
 
         if (Input.GetMouseButtonDown(1))
         {
@@ -94,23 +90,14 @@ public class ColorAbilities : MonoBehaviour
     }
 
     // ── RED ──────────────────────────────────────────────
-    private void FlameAttack()
+    private void ShootFireball()
     {
-        flameDamageTimer -= Time.deltaTime;
-        if (flameDamageTimer > 0f) return;
-        flameDamageTimer = 1f / flameDamageRate;
+        if (activeFireball != null) return;
 
-        // Damage everything in a circle at flame range in front of player
-        Vector2 center = (Vector2)firePoint.position + Vector2.right * playerController.FacingSign * flameRange * 0.5f;
-        Collider2D[] hits = Physics2D.OverlapCircleAll(center, flameRadius, enemyLayer);
-
-        foreach (var hit in hits)
-        {
-            var enemy = hit.GetComponent<EnemyBase>();
-            if (enemy != null) enemy.TakeDamage(flameDamagePerTick);
-        }
-
-        // Hook your flame VFX here (particle system, sprite animation, etc.)
+        float dir = playerController.FacingSign;
+        activeFireball = Instantiate(fireballPrefab, firePoint.position, Quaternion.identity);
+        activeFireball.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(dir * fireballSpeed, 0f);
+        Destroy(activeFireball, fireballLifetime);
     }
 
     private void FireJump()
