@@ -186,5 +186,7 @@ MonoBehaviour:
   maxHealth: 1
   contactDamage: 1
   knockbackForce: 5
-  moveSpeed: 10
-  wobbleStrength: 0.5
+  hitColor: {r: 1, g: 0, b: 0, a: 1}
+  hitFlashDuration: 0.15
+  moveSpeed: 6
+  wobbleStrength: 1

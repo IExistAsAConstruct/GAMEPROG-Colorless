@@ -55,7 +55,7 @@ public class RusherEnemy : EnemyBase
         if (dist <= detectionRange)
         {
             // Lock direction toward player
-            dashDirection = ((Vector2)player.position - (Vector2)transform.position).normalized;
+            dashDirection = new Vector2(Mathf.Sign(player.position.x - transform.position.x), 0f);
 
             // Face the player
             if ((dashDirection.x > 0 && !isFacingRight) || (dashDirection.x < 0 && isFacingRight))

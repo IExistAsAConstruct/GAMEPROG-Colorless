@@ -128,8 +128,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GreenSentry
   attackInterval: 1.5
-  detectionRadius: 3
+  detectionRadius: 20
+  damage: 1
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   growTime: 4
+  lifetime: 4

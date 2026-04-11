@@ -120,7 +120,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!60 &8274293769946285794
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -186,6 +186,8 @@ MonoBehaviour:
   maxHealth: 3
   contactDamage: 1
   knockbackForce: 5
+  hitColor: {r: 1, g: 0, b: 0, a: 1}
+  hitFlashDuration: 0.15
   detectionRange: 10
   dashSpeed: 14
   windUpTime: 0.5
