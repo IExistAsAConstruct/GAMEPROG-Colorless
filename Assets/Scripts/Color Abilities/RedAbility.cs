@@ -13,7 +13,7 @@ public class RedAbility : ColorAbility
     private GameObject activeFireball;
     private bool canBlastJump = true;
 
-    protected override void Awake()
+    protected override void Awake() 
     {
         base.Awake();
         rb = GetComponent<Rigidbody2D>();

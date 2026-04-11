@@ -27,16 +27,24 @@ public class GoliathEnemy : EnemyBase
     private bool isSlamming;
     private float slamWindUpTimer;
 
+    private Animator animator;
+
     protected override void Awake()
     {
         base.Awake();
         maxHealth = 10;
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        if (player == null) return;
+        Debug.Log($"Goliath state: isSlamming={isSlamming}, dist={Vector2.Distance(transform.position, player.position)}, vel={rb.linearVelocity}");
+        if (player == null)
+        {
+            Debug.LogWarning("Goliath: player reference is null", this);
+            return;
+        }
 
         slamTimer -= Time.deltaTime;
         lobTimer -= Time.deltaTime;
@@ -76,12 +84,14 @@ public class GoliathEnemy : EnemyBase
         isSlamming = true;
         slamWindUpTimer = slamWindUp;
         rb.linearVelocity = Vector2.zero;
+        animator.SetBool("isSlamming", true);
     }
 
     private void ExecuteSlam()
     {
         isSlamming = false;
         slamTimer = slamCooldown;
+        animator.SetBool("isSlamming", false);
 
         Collider2D hit = Physics2D.OverlapCircle(transform.position, slamRadius, playerLayer);
         if (hit != null)
@@ -94,6 +104,8 @@ public class GoliathEnemy : EnemyBase
                 hitRb.AddForce((dir + Vector2.up) * knockbackForce * 1.5f, ForceMode2D.Impulse);
             }
         }
+
+        
     }
 
     // ── Sludge Lob ──────────────────────────────────────
@@ -134,5 +146,7 @@ public class GoliathEnemy : EnemyBase
         Gizmos.DrawWireSphere(transform.position, slamRange);
         Gizmos.color = new Color(0.5f, 0f, 0.5f, 0.5f);
         Gizmos.DrawWireSphere(transform.position, slamRadius);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, lobRange);
     }
 }
