@@ -1046,6 +1046,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8294047676492174601, guid: bbb83e7d3f1b4d243b71e4f22724e3d5, type: 3}
   m_PrefabInstance: {fileID: 299450807}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &308721717
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1531722695918800191, guid: 9bbc2f304a74f944eaa0b5b30fb050b6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1531722695918800191, guid: 9bbc2f304a74f944eaa0b5b30fb050b6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 1531722695918800191, guid: 9bbc2f304a74f944eaa0b5b30fb050b6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1531722695918800191, guid: 9bbc2f304a74f944eaa0b5b30fb050b6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1531722695918800191, guid: 9bbc2f304a74f944eaa0b5b30fb050b6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1531722695918800191, guid: 9bbc2f304a74f944eaa0b5b30fb050b6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1531722695918800191, guid: 9bbc2f304a74f944eaa0b5b30fb050b6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1531722695918800191, guid: 9bbc2f304a74f944eaa0b5b30fb050b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1531722695918800191, guid: 9bbc2f304a74f944eaa0b5b30fb050b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1531722695918800191, guid: 9bbc2f304a74f944eaa0b5b30fb050b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4880273289122718827, guid: 9bbc2f304a74f944eaa0b5b30fb050b6, type: 3}
+      propertyPath: m_Name
+      value: Water
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9bbc2f304a74f944eaa0b5b30fb050b6, type: 3}
 --- !u!1 &366690490
 GameObject:
   m_ObjectHideFlags: 0
@@ -1876,7 +1933,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &738456972
 Transform:
   m_ObjectHideFlags: 0
@@ -4201,10 +4258,10 @@ MonoBehaviour:
   animator: {fileID: 0}
   playerController: {fileID: 0}
   playerAttack: {fileID: 0}
+  healingPlantPrefab: {fileID: 4625890249740170475, guid: 8c14cabb83b048a49821bce3965f1291, type: 3}
   greenSentryPrefab: {fileID: 1458704474879937859, guid: e80acc3cdccd6254981bd38d7ce53a58, type: 3}
-  spawnDistance: 1.5
-  vinePrefab: {fileID: 3958915628982238453, guid: 808c1f409b87e3742af8ea20e5459198, type: 3}
-  vineInteractRange: 10
+  maxHealUses: 2
+  spawnDistance: 5
 --- !u!114 &2027613963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4875,6 +4932,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 22100000, guid: 1324346c2f61978439819c565206088c, type: 2}
     - target: {fileID: 8439016413949617742, guid: 46fb18fce1e42144c93a49cfbdb769ab, type: 3}
+      propertyPath: whiteAnimator
+      value: 
+      objectReference: {fileID: 9100000, guid: 458225a9be3f8ca4eaacb898d600cf41, type: 2}
+    - target: {fileID: 8439016413949617742, guid: 46fb18fce1e42144c93a49cfbdb769ab, type: 3}
       propertyPath: defaultAnimator
       value: 
       objectReference: {fileID: 9100000, guid: 458225a9be3f8ca4eaacb898d600cf41, type: 2}
@@ -5119,3 +5180,4 @@ SceneRoots:
   - {fileID: 366690494}
   - {fileID: 674813296}
   - {fileID: 984372759}
+  - {fileID: 308721717}

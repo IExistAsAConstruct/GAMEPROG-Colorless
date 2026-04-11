@@ -47,7 +47,6 @@ public class PlayerController : MonoBehaviour
 
         anim.SetBool("isGrounded", isGrounded);
         anim.SetFloat("yVelocity", rb.linearVelocity.y);
-        anim.SetFloat("moveSpeed", Mathf.Abs(moveInput));
         anim.SetFloat("Speed", Mathf.Abs(moveInput));
 
         if (Input.GetButtonDown("Jump") && isGrounded && !isClimbing)

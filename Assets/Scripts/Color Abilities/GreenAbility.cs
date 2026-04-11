@@ -2,48 +2,66 @@ using UnityEngine;
 
 public class GreenAbility : ColorAbility
 {
-    [Header("Sentry (Primary)")]
+    public GameObject healingPlantPrefab;
     public GameObject greenSentryPrefab;
+    public int maxHealUses = 2;
+    private int currentHealUses;
     public float spawnDistance = 1.5f;
+    private PlayerHealth playerHealth;
 
-    [Header("Vine (Secondary)")]
-    public GameObject vinePrefab;
-    public float vineInteractRange = 3f;
+    //public GameObject vinePrefab;
+    //public float vineInteractRange = 3f;
+
+    public override void OnActivate()
+    {
+        base.OnActivate();
+        currentHealUses = maxHealUses;
+        playerHealth = GetComponent<PlayerHealth>();
+    }
 
     public override void OnPrimary()
     {
-        if (greenSentryPrefab == null) return;
         if (animator != null) animator.SetTrigger("attack");
-
         Vector3 spawnDir = playerController.IsFacingRight ? Vector3.right : Vector3.left;
         Vector3 spawnPos = transform.position + (spawnDir * spawnDistance);
         spawnPos.y = transform.position.y;
-
         Instantiate(greenSentryPrefab, spawnPos, Quaternion.identity);
     }
 
     public override void OnSecondary()
     {
-        if (vinePrefab == null) return;
-        if (animator != null) animator.SetTrigger("attack");
-
-        // Find the nearest Planter within range
-        Planter[] planters = FindObjectsByType<Planter>(FindObjectsSortMode.None);
-        Planter nearest = null;
-        float nearestDist = vineInteractRange;
-
-        foreach (var p in planters)
+        if (currentHealUses > 0 && healingPlantPrefab != null)
         {
-            if (p.HasVine) continue;
-            float dist = Vector2.Distance(transform.position, p.transform.position);
-            if (dist < nearestDist)
-            {
-                nearestDist = dist;
-                nearest = p;
-            }
+            currentHealUses--;
+            if (playerHealth != null) playerHealth.UpdateHealth(1);
+            if (animator != null) animator.SetTrigger("attack");
+            GameObject plant = Instantiate(healingPlantPrefab, transform.position, Quaternion.identity);
+            Destroy(plant, 1.5f);
         }
-
-        if (nearest != null)
-            nearest.GrowVine(vinePrefab);
     }
+
+    //public override void OnTertiary()
+    //{
+    //    if (vinePrefab == null) return;
+    //    if (animator != null) animator.SetTrigger("attack");
+
+    //    // Find the nearest Planter within range
+    //    Planter[] planters = FindObjectsByType<Planter>(FindObjectsSortMode.None);
+    //    Planter nearest = null;
+    //    float nearestDist = vineInteractRange;
+
+    //    foreach (var p in planters)
+    //    {
+    //        if (p.HasVine) continue;
+    //        float dist = Vector2.Distance(transform.position, p.transform.position);
+    //        if (dist < nearestDist)
+    //        {
+    //            nearestDist = dist;
+    //            nearest = p;
+    //        }
+    //    }
+
+    //    if (nearest != null)
+    //        nearest.GrowVine(vinePrefab);
+    //}
 }

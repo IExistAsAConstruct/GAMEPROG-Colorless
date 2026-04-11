@@ -2,6 +2,16 @@ using UnityEngine;
 
 public class PlayerAnimatorSwapper : MonoBehaviour
 {
+    [SerializeField] private RuntimeAnimatorController redAnimator;
+    [SerializeField] private RuntimeAnimatorController blueAnimator;
+    [SerializeField] private RuntimeAnimatorController greenAnimator;
+    [SerializeField] private RuntimeAnimatorController yellowAnimator;
+    [SerializeField] private RuntimeAnimatorController whiteAnimator;
+
+    private Animator animator;
+
+    private void Awake() => animator = GetComponent<Animator>();
+
     private void Start()
     {
         if (ColorManager.Instance != null)

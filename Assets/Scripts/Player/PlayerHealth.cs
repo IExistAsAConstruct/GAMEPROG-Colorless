@@ -47,9 +47,6 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Compatibility wrapper: negative values deal damage, positive values heal.
-    /// </summary>
     public void UpdateHealth(int amount)
     {
         if (amount < 0) TakeDamage(Mathf.Abs(amount));
