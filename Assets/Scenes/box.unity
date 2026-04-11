@@ -4125,6 +4125,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5419335463029355305, guid: a879ad8edd0808a4ba1ec846604d15a0, type: 3}
+      propertyPath: m_Color.a
+      value: 0.0627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419335463029355305, guid: a879ad8edd0808a4ba1ec846604d15a0, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6179246
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419335463029355305, guid: a879ad8edd0808a4ba1ec846604d15a0, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6179246
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419335463029355305, guid: a879ad8edd0808a4ba1ec846604d15a0, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8146670673726746423, guid: a879ad8edd0808a4ba1ec846604d15a0, type: 3}
       propertyPath: chaseRadius
       value: 26.02
@@ -4389,11 +4405,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1000027512730197733, guid: 46fb18fce1e42144c93a49cfbdb769ab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.01
+      value: 142.8
       objectReference: {fileID: 0}
     - target: {fileID: 1000027512730197733, guid: 46fb18fce1e42144c93a49cfbdb769ab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.41
+      value: 29.8
       objectReference: {fileID: 0}
     - target: {fileID: 1000027512730197733, guid: 46fb18fce1e42144c93a49cfbdb769ab, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4426,6 +4442,10 @@ PrefabInstance:
     - target: {fileID: 1000027512730197733, guid: 46fb18fce1e42144c93a49cfbdb769ab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064139887639604137, guid: 46fb18fce1e42144c93a49cfbdb769ab, type: 3}
+      propertyPath: jumpForce
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4407397182378791629, guid: 46fb18fce1e42144c93a49cfbdb769ab, type: 3}
       propertyPath: vinePrefab
