@@ -13,6 +13,12 @@ GameObject:
   - component: {fileID: 620972978553652706}
   - component: {fileID: 2547460858630369376}
   - component: {fileID: 2064139887639604137}
+  - component: {fileID: 8505623990650687512}
+  - component: {fileID: 5533487490189052085}
+  - component: {fileID: 6573752780084049084}
+  - component: {fileID: 1862273598864191638}
+  - component: {fileID: 2314045537918399491}
+  - component: {fileID: 5785662150208417869}
   - component: {fileID: 4407397182378791629}
   - component: {fileID: 7778132200868302845}
   - component: {fileID: 3192373387449864528}
@@ -172,7 +178,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
---- !u!114 &4407397182378791629
+--- !u!114 &8505623990650687512
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,27 +187,135 @@ MonoBehaviour:
   m_GameObject: {fileID: 565859397938357141}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64546e027d3b55c4db1a509c60f9200e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  maxHealth: 3
+  iFrameDuration: 1
+  flashInterval: 0.1
+--- !u!114 &5533487490189052085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565859397938357141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 757c014a4cb4b37419ae9f2078781e59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorAbilityHandler
+  redAbility: {fileID: 6573752780084049084}
+  blueAbility: {fileID: 1862273598864191638}
+  greenAbility: {fileID: 2314045537918399491}
+  yellowAbility: {fileID: 5785662150208417869}
+--- !u!114 &6573752780084049084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565859397938357141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e40c4c9eb2a4838409371bdd3954bc2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RedAbility
+  abilityColor: {r: 1, g: 0.3019608, b: 0.3019608, a: 0}
+  animator: {fileID: 0}
+  playerController: {fileID: 0}
+  playerAttack: {fileID: 0}
+  fireballPrefab: {fileID: 1121320574552016392, guid: 6bd0b55c8e7d57b4c9a468c035ac4257, type: 3}
+  spawnDistance: 1
+  blastJumpForce: 30
+--- !u!114 &1862273598864191638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565859397938357141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 755502315fd013649883554d227d7abc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BlueAbility
+  abilityColor: {r: 0.3019608, g: 0.5019608, b: 1, a: 0}
+  animator: {fileID: 0}
+  playerController: {fileID: 0}
+  playerAttack: {fileID: 0}
+  iceWallPrefab: {fileID: 5882424384804936731, guid: a95a7a6344952d4468dd7daf2d692f3a, type: 3}
+  wallDistance: 2
+  wallDuration: 5
+  freezeRadius: 5
+  waterLayer:
+    serializedVersion: 2
+    m_Bits: 16
+--- !u!114 &2314045537918399491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565859397938357141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa0eb13feb8c9349a4bcb8c27d5d0f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GreenAbility
+  abilityColor: {r: 0.3019608, g: 1, b: 0.3019608, a: 0}
+  animator: {fileID: 0}
+  playerController: {fileID: 0}
+  playerAttack: {fileID: 0}
+  healingPlantPrefab: {fileID: 4625890249740170475, guid: 8c14cabb83b048a49821bce3965f1291, type: 3}
+  greenSentryPrefab: {fileID: 1458704474879937859, guid: e80acc3cdccd6254981bd38d7ce53a58, type: 3}
+  maxHealUses: 2
+  spawnDistance: 1.5
+--- !u!114 &5785662150208417869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565859397938357141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 919088a882951cc4e8d95098438a129d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YellowAbility
+  abilityColor: {r: 1, g: 1, b: 0.3019608, a: 0}
+  animator: {fileID: 0}
+  playerController: {fileID: 0}
+  playerAttack: {fileID: 0}
+  speedBoostMultiplier: 1.6
+  hoverGravityScale: 0.1
+  electricPrefab: {fileID: 2173741418983554766, guid: b9c4b097b4f6b2f41aade8aa1e09562e, type: 3}
+--- !u!114 &4407397182378791629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565859397938357141}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49f63836039e66947b22f92835afc88c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColorAbilities
+  fireballPrefab: {fileID: 1121320574552016392, guid: 6bd0b55c8e7d57b4c9a468c035ac4257, type: 3}
   firePoint: {fileID: 2385077927156472964}
-  flameRange: 3
-  flameRadius: 1
-  flameDamageRate: 4
-  flameDamagePerTick: 1
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  fireballSpeed: 20
+  fireballLifetime: 1
   fireJumpForce: 30
-  iceWallPrefab: {fileID: 0}
+  iceWallPrefab: {fileID: 5882424384804936731, guid: a95a7a6344952d4468dd7daf2d692f3a, type: 3}
   iceWallSpawnDistance: 2
   iceWallDuration: 5
   iceBridgePrefab: {fileID: 0}
   bridgeRayDistance: 10
   liquidLayer:
     serializedVersion: 2
-    m_Bits: 0
-  helperPlantPrefab: {fileID: 0}
+    m_Bits: 16
+  helperPlantPrefab: {fileID: 1458704474879937859, guid: e80acc3cdccd6254981bd38d7ce53a58, type: 3}
   plantSpawnRange: 3
   vinePrefab: {fileID: 0}
   vineInteractRange: 3
@@ -214,7 +328,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 565859397938357141}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f0015494220d284799fc9a951b832c3, type: 3}
   m_Name: 
@@ -252,7 +366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimatorSwapper
   redAnimator: {fileID: 22100000, guid: dc822b68631dfa3409ca33531a3d1ceb, type: 2}
   blueAnimator: {fileID: 22100000, guid: ada668ffe41b63441b00434b221bca7d, type: 2}
-  greenAnimator: {fileID: 9100000, guid: c8e4ff7beeae85a4cb6797dd04bdeff2, type: 2}
+  greenAnimator: {fileID: 22100000, guid: 1324346c2f61978439819c565206088c, type: 2}
   yellowAnimator: {fileID: 22100000, guid: d762bead6dcc3d14783c8d30eaf63b36, type: 2}
   whiteAnimator: {fileID: 9100000, guid: 3772ff99cc6b02c40b2d293f2b21a45b, type: 2}
 --- !u!61 &3967801992309581760

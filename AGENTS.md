@@ -2,7 +2,7 @@
 - Project name: GAMEPROG Colorless
 - Unity version: Unity 6000.3.9f1
 - Active game object:
-  - Name: Goliath
-  - Tag: Enemy
-  - Layer: Enemy
+  - Name: Player
+  - Tag: Player
+  - Layer: Player
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

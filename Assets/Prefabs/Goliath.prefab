@@ -110,20 +110,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GoliathEnemy
   maxHealth: 3
   contactDamage: 1
-  knockbackForce: 5
+  knockbackForce: 25
   hitColor: {r: 1, g: 0, b: 0, a: 1}
   hitFlashDuration: 0.15
-  moveSpeed: 1
-  aggroRange: 35
-  slamRange: 12
+  moveSpeed: 4.39
+  aggroRange: 34.4
+  slamRange: 11.2
   slamCooldown: 2
   slamWindUp: 0.6
   slamDamage: 2
-  slamRadius: 2.5
+  slamRadius: 10
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
-  lobRange: 35
+    m_Bits: 64
+  lobRange: 25
   lobCooldown: 3
   sludgeBallPrefab: {fileID: 5294788687460313175, guid: b4ee02e9a70860e40b90f9e36b68fe7c, type: 3}
   lobPoint: {fileID: 1646416168837340762}
@@ -162,7 +162,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.00000071525574, y: -0.49608302}
+  m_Offset: {x: -0.00000071525574, y: -0.46480095}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -172,7 +172,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.0834985, y: 5.6578345}
+  m_Size: {x: 2.0834985, y: 5.59527}
   m_EdgeRadius: 0
 --- !u!50 &8713065309919549117
 Rigidbody2D:
@@ -190,7 +190,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1d0b92890744d2041a725da71d3760d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -233,11 +233,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3375007219585037437, guid: 68fab39c8b777f84ca22e3294a7ac116, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.2
+      value: 1.87
       objectReference: {fileID: 0}
     - target: {fileID: 3375007219585037437, guid: 68fab39c8b777f84ca22e3294a7ac116, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.87
+      value: 1.39
       objectReference: {fileID: 0}
     - target: {fileID: 3375007219585037437, guid: 68fab39c8b777f84ca22e3294a7ac116, type: 3}
       propertyPath: m_LocalPosition.z
