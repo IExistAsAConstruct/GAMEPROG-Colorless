@@ -2,6 +2,11 @@
 
 public class GoliathEnemy : EnemyBase
 {
+    [Header("Edge Detection")]
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float edgeCheckDistance = 1f;
+    [SerializeField] private LayerMask groundLayer;
+
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float aggroRange = 12f;
@@ -26,25 +31,18 @@ public class GoliathEnemy : EnemyBase
     private float lobTimer;
     private bool isSlamming;
     private float slamWindUpTimer;
-
     private Animator animator;
 
     protected override void Awake()
     {
         base.Awake();
-        maxHealth = 10;
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
         animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        Debug.Log($"Goliath state: isSlamming={isSlamming}, dist={Vector2.Distance(transform.position, player.position)}, vel={rb.linearVelocity}");
-        if (player == null)
-        {
-            Debug.LogWarning("Goliath: player reference is null", this);
-            return;
-        }
+        if (player == null) return;
 
         slamTimer -= Time.deltaTime;
         lobTimer -= Time.deltaTime;
@@ -74,29 +72,38 @@ public class GoliathEnemy : EnemyBase
         else
         {
             float dir = player.position.x > transform.position.x ? 1f : -1f;
-            rb.linearVelocity = new Vector2(dir * moveSpeed, rb.linearVelocity.y);
+
+            // Stop at ledges
+            bool groundAhead = groundCheck != null
+                && Physics2D.Raycast(groundCheck.position, Vector2.down, edgeCheckDistance, groundLayer);
+
+            if (groundAhead)
+                rb.linearVelocity = new Vector2(dir * moveSpeed, rb.linearVelocity.y);
+            else
+                rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
         }
     }
 
-    // ── Slam ────────────────────────────────────────────
     private void StartSlam()
     {
         isSlamming = true;
         slamWindUpTimer = slamWindUp;
         rb.linearVelocity = Vector2.zero;
-        animator.SetBool("isSlamming", true);
+        if (animator != null) animator.SetBool("isSlamming", true);
     }
 
     private void ExecuteSlam()
     {
         isSlamming = false;
         slamTimer = slamCooldown;
-        animator.SetBool("isSlamming", false);
+        if (animator != null) animator.SetBool("isSlamming", false);
 
         Collider2D hit = Physics2D.OverlapCircle(transform.position, slamRadius, playerLayer);
-        if (hit != null)
+        if (hit != null && hit.CompareTag("Player"))
         {
-            hit.GetComponent<PlayerHealth>()?.TakeDamage(slamDamage);
+            var health = hit.GetComponent<PlayerHealth>();
+            if (health != null) health.UpdateHealth(-slamDamage);
+
             var hitRb = hit.GetComponent<Rigidbody2D>();
             if (hitRb != null)
             {
@@ -104,16 +111,15 @@ public class GoliathEnemy : EnemyBase
                 hitRb.AddForce((dir + Vector2.up) * knockbackForce * 1.5f, ForceMode2D.Impulse);
             }
         }
-
-        
     }
 
-    // ── Sludge Lob ──────────────────────────────────────
     private void LobSludge()
     {
         lobTimer = lobCooldown;
 
         if (sludgeBallPrefab == null || lobPoint == null) return;
+
+        if (animator != null) animator.SetBool("isThrowing", true);
 
         var ball = Instantiate(sludgeBallPrefab, lobPoint.position, Quaternion.identity);
         var ballRb = ball.GetComponent<Rigidbody2D>();
@@ -124,6 +130,13 @@ public class GoliathEnemy : EnemyBase
         ballRb.linearVelocity = velocity;
 
         Destroy(ball, 5f);
+
+        Invoke(nameof(EndThrow), 0.5f);
+    }
+
+    private void EndThrow()
+    {
+        if (animator != null) animator.SetBool("isThrowing", false);
     }
 
     private Vector2 CalculateArcVelocity(Vector2 origin, Vector2 target, float arcHeight)
@@ -148,5 +161,11 @@ public class GoliathEnemy : EnemyBase
         Gizmos.DrawWireSphere(transform.position, slamRadius);
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, lobRange);
+
+        if (groundCheck != null)
+        {
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawLine(groundCheck.position, groundCheck.position + Vector3.down * edgeCheckDistance);
+        }
     }
 }

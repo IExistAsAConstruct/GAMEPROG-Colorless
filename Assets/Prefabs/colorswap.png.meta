@@ -1,0 +1,897 @@
+fileFormatVersion: 2
+guid: 8f79db791bf0b63449c5d2721ceca4f8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 865774989123962256
+    second: colorswap_0
+  - first:
+      213: -2978944274750594932
+    second: colorswap_1
+  - first:
+      213: -1530869522241608267
+    second: colorswap_2
+  - first:
+      213: 5729593189384190991
+    second: colorswap_3
+  - first:
+      213: -408584406702607052
+    second: colorswap_4
+  - first:
+      213: -5762301050422224525
+    second: colorswap_5
+  - first:
+      213: 8693321646129868869
+    second: colorswap_6
+  - first:
+      213: 3914852551280325422
+    second: colorswap_7
+  - first:
+      213: -6118511268936003949
+    second: colorswap_8
+  - first:
+      213: -534960366782524836
+    second: colorswap_9
+  - first:
+      213: -1240488068563512940
+    second: colorswap_10
+  - first:
+      213: 7740652796347163040
+    second: colorswap_11
+  - first:
+      213: -8698510599029025475
+    second: colorswap_12
+  - first:
+      213: 7953481211079626060
+    second: colorswap_13
+  - first:
+      213: 6396174142054677052
+    second: colorswap_14
+  - first:
+      213: 4198599833927931407
+    second: colorswap_15
+  - first:
+      213: 6935478144168799969
+    second: colorswap_16
+  - first:
+      213: -1473509950349936335
+    second: colorswap_17
+  - first:
+      213: -8821202544640104906
+    second: colorswap_18
+  - first:
+      213: 5815925110632439458
+    second: colorswap_19
+  - first:
+      213: 7914908756494817675
+    second: colorswap_20
+  - first:
+      213: -2652980030619255622
+    second: colorswap_21
+  - first:
+      213: 2342038989891718780
+    second: colorswap_22
+  - first:
+      213: 3002980542899251752
+    second: colorswap_23
+  - first:
+      213: 678361475445996335
+    second: colorswap_24
+  - first:
+      213: -2121679074215986425
+    second: colorswap_25
+  - first:
+      213: 3313623511216934215
+    second: colorswap_26
+  - first:
+      213: 1077745452903631943
+    second: colorswap_27
+  - first:
+      213: -7362207593734220134
+    second: colorswap_28
+  - first:
+      213: -2102559987735769835
+    second: colorswap_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: colorswap_0
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 377
+        width: 231
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 095c62af3c9d30c00800000000000000
+      internalID: 865774989123962256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_1
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 454
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c80aec917f9a8a6d0800000000000000
+      internalID: -2978944274750594932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_2
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 399
+        width: 48
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b52159c74241cae0800000000000000
+      internalID: -1530869522241608267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_3
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 386
+        width: 37
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0cfdb826aa938f40800000000000000
+      internalID: 5729593189384190991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_4
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 333
+        width: 60
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4353ab995aa645af0800000000000000
+      internalID: -408584406702607052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_5
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 340
+        width: 79
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37919b089b13800b0800000000000000
+      internalID: -5762301050422224525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_6
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 130
+        width: 77
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 540f8cb5af1e4a870800000000000000
+      internalID: 8693321646129868869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_7
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 178
+        width: 69
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e23781357a9545630800000000000000
+      internalID: 3914852551280325422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_8
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 307
+        width: 208
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39e48dc0b6ea61ba0800000000000000
+      internalID: -6118511268936003949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_9
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 303
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c52d30971607398f0800000000000000
+      internalID: -534960366782524836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_10
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 186
+        width: 47
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 491592d8ca6e8cee0800000000000000
+      internalID: -1240488068563512940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_11
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 142
+        width: 68
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a128efd4b25c6b60800000000000000
+      internalID: 7740652796347163040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_12
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 267
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3597e562bea84780800000000000000
+      internalID: -8698510599029025475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_13
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 231
+        width: 57
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4d052aa501706e60800000000000000
+      internalID: 7953481211079626060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_14
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 241
+        width: 38
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3a35ba6e76c3c850800000000000000
+      internalID: 6396174142054677052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_15
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 198
+        width: 38
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f06d947cd4c644a30800000000000000
+      internalID: 4198599833927931407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_16
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 225
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1eeaaaa50a4cf3060800000000000000
+      internalID: 6935478144168799969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_17
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 110
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1397364d18a0d8be0800000000000000
+      internalID: -1473509950349936335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_18
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 147
+        width: 159
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63664fab50bc49580800000000000000
+      internalID: -8821202544640104906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_19
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 140
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ae5583f21156b050800000000000000
+      internalID: 5815925110632439458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_20
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 113
+        width: 56
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b89908c349767dd60800000000000000
+      internalID: 7914908756494817675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_21
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 134
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abcfbbed7b8be2bd0800000000000000
+      internalID: -2652980030619255622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_22
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 133
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7e4c9a7d08908020800000000000000
+      internalID: 2342038989891718780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_23
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 114
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82a6beea4eabca920800000000000000
+      internalID: 3002980542899251752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_24
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 63
+        width: 171
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2bb445fa260a6900800000000000000
+      internalID: 678361475445996335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_25
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 67
+        width: 43
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70bf9f58f184e82e0800000000000000
+      internalID: -2121679074215986425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_26
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 46
+        width: 44
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74dc771f60b5cfd20800000000000000
+      internalID: 3313623511216934215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_27
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 60
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74c0d9e77cbe4fe00800000000000000
+      internalID: 1077745452903631943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_28
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 50
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a96d9cc333f24d990800000000000000
+      internalID: -7362207593734220134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colorswap_29
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 8
+        width: 41
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51d4f0cb4d432d2e0800000000000000
+      internalID: -2102559987735769835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      colorswap_0: 865774989123962256
+      colorswap_1: -2978944274750594932
+      colorswap_10: -1240488068563512940
+      colorswap_11: 7740652796347163040
+      colorswap_12: -8698510599029025475
+      colorswap_13: 7953481211079626060
+      colorswap_14: 6396174142054677052
+      colorswap_15: 4198599833927931407
+      colorswap_16: 6935478144168799969
+      colorswap_17: -1473509950349936335
+      colorswap_18: -8821202544640104906
+      colorswap_19: 5815925110632439458
+      colorswap_2: -1530869522241608267
+      colorswap_20: 7914908756494817675
+      colorswap_21: -2652980030619255622
+      colorswap_22: 2342038989891718780
+      colorswap_23: 3002980542899251752
+      colorswap_24: 678361475445996335
+      colorswap_25: -2121679074215986425
+      colorswap_26: 3313623511216934215
+      colorswap_27: 1077745452903631943
+      colorswap_28: -7362207593734220134
+      colorswap_29: -2102559987735769835
+      colorswap_3: 5729593189384190991
+      colorswap_4: -408584406702607052
+      colorswap_5: -5762301050422224525
+      colorswap_6: 8693321646129868869
+      colorswap_7: 3914852551280325422
+      colorswap_8: -6118511268936003949
+      colorswap_9: -534960366782524836
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

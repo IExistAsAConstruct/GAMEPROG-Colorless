@@ -20,4 +20,6 @@ public abstract class ColorAbility : MonoBehaviour
 
     public abstract void OnPrimary();
     public abstract void OnSecondary();
+
+    public virtual void OnTertiary() { }
 }

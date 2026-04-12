@@ -28,6 +28,7 @@ public class ColorAbilityHandler : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F)) currentAbility.OnPrimary();
             if (Input.GetKeyDown(KeyCode.R)) currentAbility.OnSecondary();
+            if (Input.GetKeyDown(KeyCode.V)) currentAbility.OnTertiary();
         }
     }
 

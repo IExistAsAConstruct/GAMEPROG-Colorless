@@ -7,10 +7,11 @@ public class GreenAbility : ColorAbility
     public int maxHealUses = 2;
     private int currentHealUses;
     public float spawnDistance = 1.5f;
+
     private PlayerHealth playerHealth;
 
-    //public GameObject vinePrefab;
-    //public float vineInteractRange = 3f;
+    public GameObject vinePrefab;
+    public float vineInteractRange = 3f;
 
     public override void OnActivate()
     {
@@ -40,28 +41,28 @@ public class GreenAbility : ColorAbility
         }
     }
 
-    //public override void OnTertiary()
-    //{
-    //    if (vinePrefab == null) return;
-    //    if (animator != null) animator.SetTrigger("attack");
+    public override void OnTertiary()
+    {
+        if (vinePrefab == null) return;
+        if (animator != null) animator.SetTrigger("attack");
 
-    //    // Find the nearest Planter within range
-    //    Planter[] planters = FindObjectsByType<Planter>(FindObjectsSortMode.None);
-    //    Planter nearest = null;
-    //    float nearestDist = vineInteractRange;
+        // Find the nearest Planter within range
+        Planter[] planters = FindObjectsByType<Planter>(FindObjectsSortMode.None);
+        Planter nearest = null;
+        float nearestDist = vineInteractRange;
 
-    //    foreach (var p in planters)
-    //    {
-    //        if (p.HasVine) continue;
-    //        float dist = Vector2.Distance(transform.position, p.transform.position);
-    //        if (dist < nearestDist)
-    //        {
-    //            nearestDist = dist;
-    //            nearest = p;
-    //        }
-    //    }
+        foreach (var p in planters)
+        {
+            if (p.HasVine) continue;
+            float dist = Vector2.Distance(transform.position, p.transform.position);
+            if (dist < nearestDist)
+            {
+                nearestDist = dist;
+                nearest = p;
+            }
+        }
 
-    //    if (nearest != null)
-    //        nearest.GrowVine(vinePrefab);
-    //}
+        if (nearest != null)
+            nearest.GrowVine(vinePrefab);
+    }
 }

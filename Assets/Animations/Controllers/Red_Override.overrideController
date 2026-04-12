@@ -7,7 +7,7 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Red_Override
-  m_Controller: {fileID: 9100000, guid: 3772ff99cc6b02c40b2d293f2b21a45b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 458225a9be3f8ca4eaacb898d600cf41, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: 312eb9a98faaee24b97a3c125c307944, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 89d3c97c1f08efa4d85dafaf77449d10, type: 2}
