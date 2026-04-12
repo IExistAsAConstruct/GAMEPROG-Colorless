@@ -2,7 +2,7 @@
 - Project name: GAMEPROG Colorless
 - Unity version: Unity 6000.3.9f1
 - Active game object:
-  - Name: ExitLevel
-  - Tag: Untagged
-  - Layer: Ground
+  - Name: Player
+  - Tag: Player
+  - Layer: Player
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
